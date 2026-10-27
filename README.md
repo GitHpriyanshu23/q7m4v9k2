@@ -8,6 +8,10 @@ The production application and Python API have been deployed and checked without
 
 **Demo video:** not recorded yet. The two-part recording guide is in [`docs/demo-script.md`](docs/demo-script.md). An unlisted YouTube video under ten minutes is mandatory for submission.
 
+**Public repository:** [GitHpriyanshu23/q7m4v9k2](https://github.com/GitHpriyanshu23/q7m4v9k2)
+
+![Deployed dashboard preview](docs/dashboard-preview.jpg)
+
 ## Product
 
 - **Day-ahead overview:** January decision date, configurable GMT cutoff, next-day wind profile, forecast publication age, energy and power totals, prior-history error context, optional retrospective actuals, and an hourly publication audit trail.
@@ -141,6 +145,7 @@ data/manifest.json          Source URLs, retrieval time, counts, and content has
 tests/test_analysis.py      Hand-calculated examples and time/data edge cases
 tests/test_api.py           Real snapshot, API validation, all dates/cutoffs, CSV checks
 docs/demo-script.md         Customer + technical recording walkthrough
+docs/dashboard-preview.jpg Deployed dashboard screenshot
 docs/submission-checklist.md Required deliverables and access checks
 .github/workflows/ci.yml    Python tests, React build, Docker build
 Dockerfile                 Multi-stage Node build and non-root Python runtime
@@ -172,6 +177,8 @@ docker build -t windward-pilot .
 
 Tests cover publication cutoff boundaries, timezone-aware timestamps, half-hour alignment, missing/zero data, conflicting duplicates, actual revisions as of a historical cutoff, manually calculated metrics, January/February boundaries, source hashes, query validation, and CSV consistency. The real snapshot tests exercise every January decision at each of the six UI cutoff options.
 
+Verified locally: **27 tests passed**, production React build passed, Docker image built, and the container served the UI, health endpoint, performance metrics, and CSV successfully. The production application and public repository were checked in Chrome Incognito. The GitHub Actions workflow is configured, but its first run could not start because of an account-level Actions restriction; no CI job steps executed. This is not a claim of passing hosted CI.
+
 ## Deploy to Vercel
 
 The repository includes a same-origin deployment: Vite serves React, `/api/*` routes to a FastAPI Python function. The source snapshot is included in the function bundle; no server filesystem writes or database are required. Docker is separately provided for local reproducibility and container hosting.
@@ -190,4 +197,4 @@ For Heroku instead, use its Docker container workflow with the supplied Dockerfi
 
 ## Submission status
 
-The build is not the complete submission. A verified public GitHub repository with an anonymous/random name, a working public deployment URL, an unlisted video, incognito access checks, and the supplied submission form remain required. See [`docs/submission-checklist.md`](docs/submission-checklist.md).
+The public repository and deployed app are available above and were checked in Chrome Incognito. The required unlisted video has not been recorded yet. Record it, verify its private-window access, add its URL, and complete the supplied submission form before submitting. See [`docs/submission-checklist.md`](docs/submission-checklist.md).
