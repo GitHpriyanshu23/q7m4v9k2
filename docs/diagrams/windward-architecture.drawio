@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="24.7.17" type="device">
+  <diagram id="windward-architecture" name="How Windward is built">
+    <mxGraphModel dx="1440" dy="1100" grid="1" gridSize="10" page="1" pageScale="1" pageWidth="1440" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="heading" value="&lt;b&gt;How Windward is built&lt;/b&gt;&lt;br&gt;Offline preparation is separate from interactive analysis. Vercel and Docker are different deployment paths." style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=26;fontColor=#243e30;" vertex="1" parent="1">
+          <mxGeometry x="48" y="20" width="1330" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="band-0" value="01 / OFFLINE DATA PREPARATION" style="rounded=1;html=1;whiteSpace=wrap;align=left;verticalAlign=top;spacing=18;fillColor=#f0f4eb;strokeColor=#dce4d8;fontSize=12;fontStyle=1;fontColor=#64786a;" vertex="1" parent="1">
+          <mxGeometry x="40" y="160" width="1360" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="band-1" value="02 / INTERACTIVE REQUEST AND ANALYSIS" style="rounded=1;html=1;whiteSpace=wrap;align=left;verticalAlign=top;spacing=18;fillColor=#f5f6f1;strokeColor=#dce4d8;fontSize=12;fontStyle=1;fontColor=#64786a;" vertex="1" parent="1">
+          <mxGeometry x="40" y="410" width="1360" height="410" as="geometry" />
+        </mxCell>
+        <mxCell id="band-2" value="03 / TWO WAYS TO RUN THE SAME APPLICATION" style="rounded=1;html=1;whiteSpace=wrap;align=left;verticalAlign=top;spacing=18;fillColor=#f5f6f1;strokeColor=#dce4d8;fontSize=12;fontStyle=1;fontColor=#64786a;" vertex="1" parent="1">
+          <mxGeometry x="40" y="840" width="1360" height="205" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-0" value="Public data" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#9aafa0;strokeWidth=2;fontSize=12;fontColor=#64786a;labelBackgroundColor=#fafbf7;dashed=0;exitX=1.0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="sources" target="ingest">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="270" as="sourcePoint" />
+            <mxPoint x="555" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-1" value="Validated files" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#9aafa0;strokeWidth=2;fontSize=12;fontColor=#64786a;labelBackgroundColor=#fafbf7;dashed=0;exitX=1.0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ingest" target="snapshot">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="885" y="270" as="sourcePoint" />
+            <mxPoint x="1040" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-2" value="GET /api/*" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#9aafa0;strokeWidth=2;fontSize=12;fontColor=#64786a;labelBackgroundColor=#fafbf7;dashed=0;exitX=1.0;exitY=0.32142857142857145;exitDx=0;exitDy=0;entryX=0.0;entryY=0.32142857142857145;entryDx=0;entryDy=0;" edge="1" parent="1" source="react" target="api">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="515" as="sourcePoint" />
+            <mxPoint x="555" y="515" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-3" value="JSON / CSV" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#9aafa0;strokeWidth=2;fontSize=12;fontColor=#64786a;labelBackgroundColor=#fafbf7;dashed=0;exitX=0.0;exitY=0.7142857142857143;exitDx=0;exitDy=0;entryX=1.0;entryY=0.7142857142857143;entryDx=0;entryDy=0;" edge="1" parent="1" source="api" target="react">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="555" y="570" as="sourcePoint" />
+            <mxPoint x="400" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-4" value="Parameters" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#9aafa0;strokeWidth=2;fontSize=12;fontColor=#64786a;labelBackgroundColor=#fafbf7;dashed=0;exitX=1.0;exitY=0.32142857142857145;exitDx=0;exitDy=0;entryX=0.0;entryY=0.32142857142857145;entryDx=0;entryDy=0;" edge="1" parent="1" source="api" target="analysis">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="885" y="515" as="sourcePoint" />
+            <mxPoint x="1040" y="515" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-5" value="Results" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#9aafa0;strokeWidth=2;fontSize=12;fontColor=#64786a;labelBackgroundColor=#fafbf7;dashed=0;exitX=0.0;exitY=0.7142857142857143;exitDx=0;exitDy=0;entryX=1.0;entryY=0.7142857142857143;entryDx=0;entryDy=0;" edge="1" parent="1" source="analysis" target="api">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1040" y="570" as="sourcePoint" />
+            <mxPoint x="885" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-6" value="" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#9aafa0;strokeWidth=2;fontSize=12;fontColor=#64786a;labelBackgroundColor=#fafbf7;dashed=1;exitX=1.0;exitY=0.625;exitDx=0;exitDy=0;entryX=1.0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="snapshot" target="cache">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1370" y="285" as="sourcePoint" />
+            <mxPoint x="1370" y="735" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1390" y="285" />
+              <mxPoint x="1390" y="735" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-7" value="Indexed data" style="edgeStyle=none;html=1;endArrow=block;endFill=1;strokeColor=#9aafa0;strokeWidth=2;fontSize=12;fontColor=#64786a;labelBackgroundColor=#fafbf7;dashed=0;exitX=0.5;exitY=0.0;exitDx=0;exitDy=0;entryX=0.5;entryY=1.0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cache" target="analysis">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1205" y="685" as="sourcePoint" />
+            <mxPoint x="1205" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sources" value="&lt;b&gt;Elexon public APIs&lt;/b&gt;&lt;br&gt;WINDFOR: forecast + publication time&lt;br&gt;FUELHH: half-hour actuals, WIND only&lt;br&gt;No additional market datasets" style="rounded=1;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacing=18;fillColor=#edf3e7;strokeColor=#9eb391;fontColor=#243e30;fontFamily=Arial;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="210" width="330" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ingest" value="&lt;b&gt;Offline ingestion&lt;/b&gt;&lt;br&gt;scripts/ingest.py — manual run&lt;br&gt;Download, retry, validate, normalize&lt;br&gt;No download on a dashboard request" style="rounded=1;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacing=18;fillColor=#ffffff;strokeColor=#cbd8c9;fontColor=#243e30;fontFamily=Arial;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="555" y="210" width="330" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="snapshot" value="&lt;b&gt;Bundled evidence&lt;/b&gt;&lt;br&gt;windfor.json.gz + fuelhh.json.gz&lt;br&gt;manifest.json: URLs, time, counts, hashes&lt;br&gt;Fixed historical snapshot; no database" style="rounded=1;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacing=18;fillColor=#edf3e7;strokeColor=#9eb391;fontColor=#243e30;fontFamily=Arial;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="210" width="330" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="react" value="&lt;b&gt;Buyer / React browser app&lt;/b&gt;&lt;br&gt;Date, cutoff, date range, view selection&lt;br&gt;Recharts, audit trail, actuals toggle&lt;br&gt;TypeScript + Vite; same-origin requests&lt;br&gt;Does not calculate accuracy formulas" style="rounded=1;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacing=18;fillColor=#ffffff;strokeColor=#cbd8c9;fontColor=#243e30;fontFamily=Arial;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="470" width="330" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="api" value="&lt;b&gt;Python FastAPI&lt;/b&gt;&lt;br&gt;backend/main.py + api/index.py&lt;br&gt;Validate request; call analysis functions&lt;br&gt;Decision, performance, metadata, CSV&lt;br&gt;Return computed JSON or CSV" style="rounded=1;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacing=18;fillColor=#ffffff;strokeColor=#cbd8c9;fontColor=#243e30;fontFamily=Arial;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="555" y="470" width="330" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="analysis" value="&lt;b&gt;Pure analysis functions&lt;/b&gt;&lt;br&gt;backend/analysis.py&lt;br&gt;Latest publication at/before cutoff&lt;br&gt;Average two half-hour actuals&lt;br&gt;MAE, RMSE, bias, shortfall, coverage" style="rounded=1;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacing=18;fillColor=#edf3e7;strokeColor=#9eb391;fontColor=#243e30;fontFamily=Arial;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="470" width="330" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="cache" value="&lt;b&gt;Memory cache / indexes&lt;/b&gt;&lt;br&gt;Lazy load per Python process&lt;br&gt;Snapshot indexes + selected-day results" style="rounded=1;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacing=18;fillColor=#ffffff;strokeColor=#cbd8c9;fontColor=#243e30;fontFamily=Arial;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="685" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="timing" value="&lt;b&gt;Two separate information views&lt;/b&gt;&lt;br&gt;Decision context: earlier decisions and actual versions available by current cutoff.&lt;br&gt;Retrospective review: latest actual versions in the bundled snapshot." style="rounded=1;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacing=18;fillColor=#fcf6e9;strokeColor=#d3b784;fontColor=#243e30;fontFamily=Arial;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="685" width="815" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="vercel" value="&lt;b&gt;Current public deployment — Vercel&lt;/b&gt;&lt;br&gt;Static React assets served by Vercel&lt;br&gt;/api/* rewrites to a Python function exposing FastAPI&lt;br&gt;Snapshot files are included in the function bundle" style="rounded=1;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacing=18;fillColor=#edf3e7;strokeColor=#9eb391;fontColor=#243e30;fontFamily=Arial;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="70" y="890" width="630" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="docker" value="&lt;b&gt;Separate container path — Docker&lt;/b&gt;&lt;br&gt;Node build stage creates the React production files&lt;br&gt;Non-root Python + Uvicorn serves UI and API together&lt;br&gt;Docker Compose gives one-command local startup" style="rounded=1;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacing=18;fillColor=#ffffff;strokeColor=#cbd8c9;fontColor=#243e30;fontFamily=Arial;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="740" y="890" width="630" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="footnote" value="Source: implemented repository. Pilot has no live ingestion scheduler, shared database, trained wind model, or trade execution." style="text;html=1;align=left;whiteSpace=wrap;fontSize=12;fontColor=#64786a;" vertex="1" parent="1">
+          <mxGeometry x="48" y="1050" width="1340" height="38" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

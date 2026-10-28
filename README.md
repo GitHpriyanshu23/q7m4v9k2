@@ -10,6 +10,8 @@ The production application and Python API have been deployed and checked without
 
 **Public repository:** [GitHpriyanshu23/q7m4v9k2](https://github.com/GitHpriyanshu23/q7m4v9k2)
 
+**Presentation materials:** [Five-minute customer script with scene cues](docs/customer-pitch-5min.md), [narration-only copy](docs/customer-narration.txt), [architecture and workflow explained](docs/architecture-and-workflow.md), and [editable diagrams with previews](docs/diagrams/README.md).
+
 ![Deployed dashboard preview](docs/dashboard-preview.jpg)
 
 ## Product

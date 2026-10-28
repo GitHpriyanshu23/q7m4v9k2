@@ -1,0 +1,40 @@
+flowchart TB
+  subgraph PREP["OFFLINE DATA PREPARATION — manual refresh"]
+    E["Elexon public APIs<br/>WINDFOR forecasts + FUELHH WIND actuals"]
+    I["scripts/ingest.py<br/>Download, retry, validate, normalize"]
+    S[("Bundled snapshot files<br/>windfor.json.gz + fuelhh.json.gz")]
+    M["manifest.json<br/>Source URLs, retrieval time, counts, hashes"]
+    E --> I
+    I --> S
+    I --> M
+  end
+  subgraph RUNTIME["INTERACTIVE ANALYSIS — same public origin"]
+    U["Utility buyer<br/>Date, cutoff, date range"]
+    R["React + TypeScript<br/>Views, controls, Recharts, audit trail"]
+    A["FastAPI — backend/main.py<br/>Validate queries; JSON and CSV endpoints"]
+    C[("Per-process memory cache<br/>Snapshot indexes + selected-day results")]
+    D["Pure analysis — backend/analysis.py<br/>Latest eligible forecast; hourly alignment; metrics"]
+    U --> R
+    R -->|"GET /api/decision or /api/performance"| A
+    R -->|"GET /api/export"| A
+    A --> C
+    C --> D
+    D -->|"Computed results"| A
+    A -->|"JSON or CSV"| R
+    R -->|"Decision context and retrospective review"| U
+  end
+  S -->|"Load lazily on first request"| C
+  M -->|"GET /api/meta"| A
+  V["PUBLIC HOST: Vercel<br/>Static React assets + api/index.py Python function"]
+  K["ALTERNATIVE RUNTIME: Docker<br/>Node build stage; non-root Python + Uvicorn<br/>FastAPI serves UI and API together"]
+  V -.-> R
+  V -.-> A
+  K -.-> A
+  N["Pilot boundaries<br/>Fixed historical data; no database or scheduler<br/>No trained forecast model or trading integration"]
+  S -.-> N
+  classDef source fill:#eef3e5,stroke:#799665,color:#233d2c;
+  classDef process fill:#ffffff,stroke:#799665,color:#233d2c;
+  classDef note fill:#faf5e9,stroke:#bf9b66,color:#644d2c;
+  class E,S,M,C source;
+  class I,U,R,A,D,V,K process;
+  class N note;

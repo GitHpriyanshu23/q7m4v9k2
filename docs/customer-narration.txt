@@ -1,0 +1,38 @@
+Every day, your buying team has to commit to tomorrow's electricity before knowing how much wind will actually arrive. If wind is overestimated, there is less generation than the buying plan anticipated.
+
+This pilot introduces Windward: a portal that makes the available wind forecast clear, and puts its uncertainty into a measurable, auditable context.
+Let's replay a real decision. It is the fifteenth of January, at nine in the morning, and we are assessing wind for delivery on the sixteenth.
+
+At that point, the available forecast indicated about one hundred and ninety gigawatt-hours of wind energy across the next day, with average generation of seven point nine three gigawatts.
+
+The hourly profile shows how that supply was expected to change through the day. You can see the lower overnight output and the stronger evening outlook, rather than relying on a single daily total.
+The important question is which forecast was actually available when you had to decide.
+
+Here, the latest publication was at seven thirty, ninety minutes before our cutoff. Windward excludes later forecast updates, even when we now know they were more accurate.
+
+The audit trail lets you inspect the publication behind each delivery hour. That means a decision can be reviewed against the information available at the time.
+Alongside tomorrow's forecast, we show earlier results that were already available by this decision time.
+
+For this example, the earlier average absolute error was about two point zero six gigawatts. The panel also shows that ninety percent of observed hourly shortfalls were at or below four point three two gigawatts.
+
+These are historical observations, not a guaranteed reserve recommendation. They help your team judge how much confidence to place in the wind outlook.
+After delivery, we can reveal actual generation and assess the decision. The portal clearly labels this information as retrospective: it was not available when buying.
+
+For this day, the forecast's average absolute error was zero point seven eight gigawatts. Its average bias was positive, meaning wind was overestimated overall.
+
+You can also see individual hours where the actual line fell below the forecast. That distinction matters, because a daily total alone can hide the timing of a shortfall.
+Across January's buying decisions, we matched all seven hundred and forty-four delivery hours, giving complete coverage for this pilot analysis.
+
+The average absolute forecast error was about two point zero four gigawatts. The root mean squared error was higher, at two point five, reflecting the impact of larger misses.
+
+We also found a positive average bias of one point seven five gigawatts, with wind overestimated in about eighty-five percent of matched hours.
+
+These results suggest that overestimation deserves particular attention in this sample. The daily chart and hourly view help identify where errors were concentrated, so the team can investigate the pattern rather than treating every delivery period as equally reliable.
+The largest hourly shortfall in this sample was six point eight seven gigawatts, for delivery on the twelfth of January at one in the morning.
+
+One click takes us back to the buying decision behind that result. This connects the headline metric to a specific forecast, publication, and outcome, giving the team a practical starting point for investigation.
+The analysis is backed by Elexon data, with an exportable record for review.
+
+Windward provides a clear forecast, quantified error, and a traceable decision record. Adding your demand, contracted supply, and portfolio allocation would translate this national view into client-specific buying decisions.
+
+That is the next step beyond this pilot.

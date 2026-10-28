@@ -1,0 +1,31 @@
+flowchart TB
+  U["Buyer selects January decision date<br/>and cutoff — default 09:00 GMT"]
+  V["FastAPI validates the request<br/>Read bundled snapshot through cached indexes"]
+  H["Generate next-day delivery hours<br/>Jan 1–31 decisions deliver Jan 2–Feb 1"]
+  F["For each target hour: latest WINDFOR<br/>publication at or before decision cutoff"]
+  Q{"Eligible forecast exists?"}
+  MISS["Keep missing forecast as null<br/>Reduce coverage; never substitute zero"]
+  SHOW["Show forecast profile, energy,<br/>publication time, age and lead time"]
+  P["Earlier January buying decisions only<br/>Actual versions published by current cutoff"]
+  PC["Prior-history MAE, bias and P90 shortfall<br/>Descriptive context, not a guaranteed reserve"]
+  ACT["Retrospective comparison<br/>Latest actual versions in bundled snapshot"]
+  ALIGN["Hourly actual = mean of two half-hours<br/>Both required; otherwise comparison missing"]
+  ERR["Error = forecast minus actual<br/>Matched pairs only"]
+  MET["Calculate MAE, RMSE, bias,<br/>shortfall energy and matched coverage"]
+  VIEW["Reveal actuals / performance page<br/>Explicitly label hindsight results"]
+  CSV["Export selected dates and cutoff<br/>Forecast, actual, error, source timestamps"]
+  U --> V --> H --> F --> Q
+  Q -->|Yes| SHOW
+  Q -->|No| MISS
+  MISS --> SHOW
+  V --> P --> PC --> SHOW
+  F --> ACT --> ALIGN --> ERR --> MET --> VIEW
+  SHOW -->|"Optional retrospective review"| VIEW
+  VIEW --> CSV
+  SHOW --> CSV
+  classDef input fill:#eef3e5,stroke:#799665,color:#233d2c;
+  classDef process fill:#ffffff,stroke:#799665,color:#233d2c;
+  classDef retrospective fill:#faf5e9,stroke:#bf9b66,color:#644d2c;
+  class U,SHOW,P,PC input;
+  class V,H,F,Q,MISS,CSV process;
+  class ACT,ALIGN,ERR,MET,VIEW retrospective;

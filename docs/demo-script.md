@@ -2,6 +2,8 @@
 
 Target duration: **9 minutes**, maximum **10 minutes total**. Record the real application and use your own narration. Avoid claiming that the tool calculates purchase volume or financial savings. Numbers below refer to the bundled snapshot and a 09:00 GMT cutoff.
 
+For the complete, word-for-word customer pitch with eight timed scenes, use [customer-pitch-5min.md](customer-pitch-5min.md). It targets 4:55 and supersedes the Part 1 outline below. A narration-only copy is in [customer-narration.txt](customer-narration.txt). The detailed technical explanation is in [architecture-and-workflow.md](architecture-and-workflow.md), with editable diagrams under [diagrams/](diagrams/).
+
 ## Part 1 — Customer pilot presentation (0:00–4:30)
 
 ### 0:00–0:35 — Start with the decision
